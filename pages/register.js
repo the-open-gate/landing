@@ -163,7 +163,7 @@ const Register = () => {
 
     if (!isError) {
       console.log({ form });
-      axios.post(`${process.env.URL}`, form);
+      axios.post(`https://the-open-gate-server.herokuapp.com`, form);
       setForm({
         first_name: "",
         last_name: "",
