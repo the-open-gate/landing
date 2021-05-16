@@ -52,7 +52,7 @@ const Register = () => {
   };
 
   const handleGender = (e) => {
-    setForm({ ...form, gender: e.target.value.trim() });
+    setForm({ ...form, gender: e.target.value });
   };
 
   const handleBlur = (e) => {
@@ -76,9 +76,7 @@ const Register = () => {
   const handleChange = (e) => {
     setError({ ...error, [e.target.name]: "" });
     if (e.target.name === "date_of_birth") {
-      const age = Math.abs(
-        moment(e.target.value.trim()).diff(moment(), "years")
-      );
+      const age = Math.abs(moment(e.target.value).diff(moment(), "years"));
 
       if (age <= 17) {
         setError({ ...error, date_of_birth: "You must be above 17" });
@@ -86,9 +84,9 @@ const Register = () => {
     }
 
     if (e.target.name === "phone") {
-      const { error: err } = isNumber(e.target.value.trim());
+      const { error: err } = isNumber(e.target.value);
       if (!err) {
-        setForm({ ...form, [e.target.name]: e.target.value.trim() });
+        setForm({ ...form, [e.target.name]: e.target.value });
       } else {
         setForm({ ...form, phone: "" });
 
@@ -105,7 +103,7 @@ const Register = () => {
         });
       }
     } else {
-      setForm({ ...form, [e.target.name]: e.target.value.trim() });
+      setForm({ ...form, [e.target.name]: e.target.value });
     }
   };
 
@@ -121,7 +119,7 @@ const Register = () => {
     const errorKeys = Object.keys(error);
 
     errorKeys.forEach((field) => {
-      if (form[field].length <= 0) {
+      if (form[field].trim().length <= 0) {
         const inputTarget = document.getElementById(field);
         inputTarget.scrollIntoView({ behavior: "smooth" });
 
@@ -162,7 +160,6 @@ const Register = () => {
     });
 
     if (!isError) {
-      console.log({ form });
       axios.post(`https://the-open-gate-server.herokuapp.com`, form);
       setForm({
         first_name: "",
@@ -553,3 +550,4 @@ const Register = () => {
 };
 
 export default Register;
+
