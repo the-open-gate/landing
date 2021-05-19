@@ -28,6 +28,7 @@ const Register = () => {
     intrests: "",
     country: "Sri Lanka",
     area_of_speacialization: "",
+    method_of_communication: "phone",
   });
 
   const [error, setError] = useState({
@@ -53,6 +54,10 @@ const Register = () => {
 
   const handleGender = (e) => {
     setForm({ ...form, gender: e.target.value });
+  };
+
+  const handleMethodOfCommunication = (e) => {
+    setForm({ ...form, method_of_communication: e.target.value });
   };
 
   const handleBlur = (e) => {
@@ -160,7 +165,7 @@ const Register = () => {
     });
 
     if (!isError) {
-      axios.post(`https://the-open-gate-server.herokuapp.com`, form);
+      axios.post(`http://localhost:5000`, form);
       setForm({
         first_name: "",
         last_name: "",
@@ -178,6 +183,7 @@ const Register = () => {
         intrests: "",
         country: "Sri Lanka",
         area_of_speacialization: "",
+        method_of_communication: "phone",
       });
       setSubmitted(true);
     }
@@ -267,7 +273,7 @@ const Register = () => {
             className="-mt-10"
           >
             <h1 className="text-xl md:text-2xl font-semibold text-gray-100 block w-full text-center my-10">
-              The Open Gate membership application
+              Membership application
             </h1>
             <form
               onSubmit={handleSubmit}
@@ -278,9 +284,9 @@ const Register = () => {
                   <h3 className="font-medium text-base md:text-lg text-gray-200">
                     Personal Information
                   </h3>
-                  <h4 className="text-xs md:text-sm text-gray-400">
+                  {/* <h4 className="text-xs md:text-sm text-gray-400">
                     Lorem ipsum dolor sit amet consectetur.
-                  </h4>
+                  </h4> */}
                 </div>
                 <div className="w-full">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-10 gap-y-5 mb-5">
@@ -422,9 +428,9 @@ const Register = () => {
                   <h3 className="font-medium text-base md:text-lg text-gray-200">
                     Contact Information
                   </h3>
-                  <h4 className="text-xs md:text-sm text-gray-400">
+                  {/* <h4 className="text-xs md:text-sm text-gray-400">
                     Lorem ipsum dolor sit amet consectetur.
-                  </h4>
+                  </h4> */}
                 </div>
 
                 <div className="w-full">
@@ -454,9 +460,9 @@ const Register = () => {
                   <h3 className="font-medium text-base md:text-lg text-gray-200">
                     Other Information
                   </h3>
-                  <h4 className="text-xs md:text-sm text-gray-400">
+                  {/* <h4 className="text-xs md:text-sm text-gray-400">
                     Lorem ipsum dolor sit amet consectetur.
-                  </h4>
+                  </h4> */}
                 </div>
 
                 <div className="w-full">
@@ -498,6 +504,68 @@ const Register = () => {
                     />
                   </div>
                 </div>
+
+                {/* method of commutnication */}
+                <div className="h-28">
+                  <label
+                    htmlFor="male"
+                    className="block text-xs md:text-sm font-medium text-gray-300"
+                  >
+                    Method of communication
+                  </label>
+                  <div className="mt-1 flex items-center justify-start gap-5">
+                    <div className="flex items-center h-5">
+                      <input
+                        id="phoneOpt"
+                        name="moc"
+                        type="radio"
+                        value="phone"
+                        checked
+                        onChange={handleMethodOfCommunication}
+                        className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-full"
+                      />
+                      <label
+                        htmlFor="phoneOpt"
+                        className="ml-3 block text-sm font-medium text-gray-300"
+                      >
+                        Phone
+                      </label>
+                    </div>
+                    <div className="flex items-center h-5">
+                      <input
+                        id="whatsapp"
+                        name="moc"
+                        type="radio"
+                        value="whatsapp"
+                        onChange={handleMethodOfCommunication}
+                        className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-full"
+                      />
+                      <label
+                        htmlFor="whatsapp"
+                        className="ml-3 block text-sm font-medium text-gray-300"
+                      >
+                        Whatsapp
+                      </label>
+                    </div>
+                    <div className="flex items-center h-5">
+                      <input
+                        id="emailOpt"
+                        name="moc"
+                        type="radio"
+                        value="email"
+                        onChange={handleMethodOfCommunication}
+                        className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-full"
+                      />
+                      <label
+                        htmlFor="emailOpt"
+                        className="ml-3 block text-sm font-medium text-gray-300"
+                      >
+                        Email
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                {/* end of method of comunication */}
               </div>
 
               <div className="w-full flex justify-end bg-formBackgroundSecondary p-3 px-5 md:px-10">
@@ -550,4 +618,5 @@ const Register = () => {
 };
 
 export default Register;
+
 
