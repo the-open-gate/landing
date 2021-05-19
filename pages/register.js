@@ -165,7 +165,7 @@ const Register = () => {
     });
 
     if (!isError) {
-      axios.post(`http://localhost:5000`, form);
+      axios.post(`https://the-open-gate-server.herokuapp.com`, form);
       setForm({
         first_name: "",
         last_name: "",
