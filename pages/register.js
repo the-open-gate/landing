@@ -25,10 +25,11 @@ const Register = () => {
     phone: "",
     education: "",
     occupation: "",
-    intrests: "",
+    interests: "",
     country: "Sri Lanka",
-    area_of_speacialization: "",
+    area_of_specialization: "",
     method_of_communication: "phone",
+    add_to_whatsapp_group: "no",
   });
 
   const [error, setError] = useState({
@@ -44,9 +45,19 @@ const Register = () => {
     phone: "",
     education: "",
     occupation: "",
-    intrests: "",
-    area_of_speacialization: "",
+    interests: "",
+    area_of_specialization: "",
   });
+
+  const handleAddToGroup = (e) => {
+    let val = "";
+    if (form.add_to_whatsapp_group === "no") {
+      val = "yes";
+    } else {
+      val = "no";
+    }
+    setForm({ ...form, add_to_whatsapp_group: val });
+  };
 
   const handleCountry = (country) => {
     setForm({ ...form, country });
@@ -165,7 +176,7 @@ const Register = () => {
     });
 
     if (!isError) {
-      axios.post(`https://the-open-gate-server.herokuapp.com`, form);
+      axios.post(`http://localhost:5000`, form);
       setForm({
         first_name: "",
         last_name: "",
@@ -180,10 +191,11 @@ const Register = () => {
         phone: "",
         education: "",
         occupation: "",
-        intrests: "",
+        interests: "",
         country: "Sri Lanka",
-        area_of_speacialization: "",
+        area_of_specialization: "",
         method_of_communication: "phone",
+        add_to_whatsapp_group: "no",
       });
       setSubmitted(true);
     }
@@ -486,21 +498,21 @@ const Register = () => {
                     />
                     <TextInput
                       onBlur={handleBlur}
-                      label="Intrests"
-                      placeholder="Intrests"
+                      label="interests"
+                      placeholder="interests"
                       pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                       onChange={handleChange}
-                      error={error.intrests}
-                      value={form.intrests}
+                      error={error.interests}
+                      value={form.interests}
                     />
                     <TextInput
                       onBlur={handleBlur}
-                      label="Area of speacialization"
-                      placeholder="Area of speacialization"
+                      label="Area of specialization"
+                      placeholder="Area of specialization"
                       pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
                       onChange={handleChange}
-                      error={error.area_of_speacialization}
-                      value={form.area_of_speacialization}
+                      error={error.area_of_specialization}
+                      value={form.area_of_specialization}
                     />
                   </div>
                 </div>
@@ -511,7 +523,7 @@ const Register = () => {
                     htmlFor="male"
                     className="block text-xs md:text-sm font-medium text-gray-300"
                   >
-                    Method of communication
+                    Prefered method of communication
                   </label>
                   <div className="mt-1 flex items-center justify-start gap-5">
                     <div className="flex items-center h-5">
@@ -566,6 +578,26 @@ const Register = () => {
                   </div>
                 </div>
                 {/* end of method of comunication */}
+
+                {/* add to whatsapp group */}
+                <div className="mb-20 flex items-center justify-start gap-2">
+                  <input
+                    type="checkbox"
+                    name="addToGroup"
+                    id="addToGroup"
+                    onChange={handleAddToGroup}
+                    checked={
+                      form.add_to_whatsapp_group === "yes" ? true : false
+                    }
+                  />
+                  <label
+                    htmlFor="addToGroup"
+                    className="block text-xs md:text-sm font-medium text-gray-300"
+                  >
+                    Add to Whatsapp group
+                  </label>
+                </div>
+                {/* end of add to whatsapp group */}
               </div>
 
               <div className="w-full flex justify-end bg-formBackgroundSecondary p-3 px-5 md:px-10">
@@ -618,5 +650,6 @@ const Register = () => {
 };
 
 export default Register;
+
 
 
