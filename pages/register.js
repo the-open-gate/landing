@@ -56,7 +56,7 @@ const Register = () => {
     } else {
       val = "no";
     }
-    console.log({ MOC: form.method_of_communication });
+ 
     setForm({ ...form, add_to_whatsapp_group: val });
   };
 
