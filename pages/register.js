@@ -56,6 +56,7 @@ const Register = () => {
     } else {
       val = "no";
     }
+    console.log({ MOC: form.method_of_communication });
     setForm({ ...form, add_to_whatsapp_group: val });
   };
 
@@ -338,6 +339,7 @@ const Register = () => {
                             value="male"
                             checked
                             onChange={handleGender}
+                            checked={form.gender === "male"}
                             className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-full"
                           />
                           <label
@@ -354,6 +356,7 @@ const Register = () => {
                             type="radio"
                             value="female"
                             onChange={handleGender}
+                            checked={form.gender === "female"}
                             className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-full"
                           />
                           <label
@@ -534,6 +537,7 @@ const Register = () => {
                         value="phone"
                         checked
                         onChange={handleMethodOfCommunication}
+                        checked={form.method_of_communication === "phone"}
                         className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-full"
                       />
                       <label
@@ -550,6 +554,7 @@ const Register = () => {
                         type="radio"
                         value="whatsapp"
                         onChange={handleMethodOfCommunication}
+                        checked={form.method_of_communication === "whatsapp"}
                         className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-full"
                       />
                       <label
@@ -566,6 +571,7 @@ const Register = () => {
                         type="radio"
                         value="email"
                         onChange={handleMethodOfCommunication}
+                        checked={form.method_of_communication === "email"}
                         className="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300 rounded-full"
                       />
                       <label
