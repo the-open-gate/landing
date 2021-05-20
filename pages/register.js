@@ -530,7 +530,7 @@ const Register = () => {
                     htmlFor="male"
                     className="block text-xs md:text-sm font-medium text-gray-300"
                   >
-                    Prefered method of communication
+                    Preferred method of communication
                   </label>
                   <div className="mt-1 flex items-center justify-start gap-5">
                     <div className="flex items-center h-5">
