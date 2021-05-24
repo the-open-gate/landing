@@ -56,7 +56,6 @@ const Register = () => {
     } else {
       val = "no";
     }
- 
     setForm({ ...form, add_to_whatsapp_group: val });
   };
 
@@ -207,6 +206,7 @@ const Register = () => {
       <Head>
         <title>Registration | The Open Gate</title>
         <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
       </Head>
 
       <div className="w-full flex items-center justify-center">
@@ -530,7 +530,7 @@ const Register = () => {
                     htmlFor="male"
                     className="block text-xs md:text-sm font-medium text-gray-300"
                   >
-                    Preferred method of communication
+                    Prefered method of communication
                   </label>
                   <div className="mt-1 flex items-center justify-start gap-5">
                     <div className="flex items-center h-5">
@@ -655,10 +655,68 @@ const Register = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* footer */}
+      <div className="my-20 w-full flex items-center justify-center flex-col text-center">
+        <h3 className="text-sm text-gray-400 text-center">
+          129/2/6, D.S. Senanayake Veediya, <br /> Kandy, Sri Lanka
+        </h3>
+        <h3 className="mt-1 text-xs text-gray-400">+94 76 1630151</h3>
+
+        <div className="mt-4 flex items-center justify-center gap-5">
+          <a href="https://www.instagram.com/theopengatelk/" target="_blank">
+            <span
+              className="iconify w-7 h-7 text-gray-400 hover:text-gray-300"
+              data-icon="ant-design:instagram-filled"
+              data-inline="false"
+            ></span>
+          </a>
+
+          <a href="https://www.facebook.com/theopengatelk/" target="_blank">
+            <span
+              className="iconify w-7 h-7 text-gray-400 hover:text-gray-300 rounded-full"
+              data-icon="ant-design:facebook-filled"
+              data-inline="false"
+            ></span>
+          </a>
+
+          <a href="https://twitter.com/theopengatelk" target="_blank">
+            <span
+              className="iconify w-7 h-7 text-gray-400 hover:text-gray-300"
+              data-icon="ant-design:twitter-circle-filled"
+              data-inline="false"
+            ></span>
+          </a>
+
+          <a
+            href="https://lk.linkedin.com/company/theopengatelk"
+            target="_blank"
+          >
+            <span
+              className="iconify w-7 h-7 text-gray-400 hover:text-gray-300 rounded-full"
+              data-icon="ant-design:linkedin-filled"
+              data-inline="false"
+            ></span>
+          </a>
+
+          <a href="mailto:theopengatelk@gmail.com" target="_blank">
+            <span
+              className="iconify w-7 h-7 text-gray-400 hover:text-gray-300 rounded-full"
+              data-icon="dashicons:email-alt"
+              data-inline="false"
+            ></span>
+          </a>
+        </div>
+
+        <h3 className="mt-3 text-xs text-gray-500">
+          &copy; theopengatelk.org. All rights reserved
+        </h3>
+      </div>
     </section>
   );
 };
 
 export default Register;
+
 
 
