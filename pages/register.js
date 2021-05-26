@@ -406,22 +406,7 @@ const Register = () => {
 
                   {/* country */}
                   <div className="col-span-2 grid grid-cols-1 md:grid-cols-3 gap-y-5 gap-5">
-                    <div className="h-28 flex flex-col gap-2">
-                      <label className="block text-xs md:text-sm font-medium text-gray-200">
-                        Country
-                      </label>
-                      <Select handleCountry={(e) => handleCountry(e)} />
-                    </div>
-
-                    <TextInput
-                      onBlur={handleBlur}
-                      label="State"
-                      placeholder="State"
-                      onChange={handleChange}
-                      error={error.state}
-                      value={form.state}
-                    />
-
+                    
                     <TextInput
                       onBlur={handleBlur}
                       label="City"
@@ -430,6 +415,22 @@ const Register = () => {
                       error={error.city}
                       value={form.city}
                     />
+                        
+                    <TextInput
+                      onBlur={handleBlur}
+                      label="State/Province"
+                      placeholder="State/Province"
+                      onChange={handleChange}
+                      error={error.state}
+                      value={form.state}
+                    />
+
+                    <div className="h-28 flex flex-col gap-2">
+                      <label className="block text-xs md:text-sm font-medium text-gray-200">
+                        Country
+                      </label>
+                      <Select handleCountry={(e) => handleCountry(e)} />
+                    </div>
 
                     <TextInput
                       onBlur={handleBlur}
