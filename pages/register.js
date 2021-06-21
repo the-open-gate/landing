@@ -418,7 +418,7 @@ const Register = () => {
                         
                     <TextInput
                       onBlur={handleBlur}
-                      label="State/Province"
+                      label="State"
                       placeholder="State/Province"
                       onChange={handleChange}
                       error={error.state}
