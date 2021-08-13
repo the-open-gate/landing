@@ -94,7 +94,7 @@ const Register = () => {
     if (e.target.name === "date_of_birth") {
       const age = Math.abs(moment(e.target.value).diff(moment(), "years"));
 
-      if (age <= 17) {
+      if (age < 17) {
         setError({ ...error, date_of_birth: "You must be above 17" });
       }
     }
