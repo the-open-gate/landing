@@ -150,7 +150,7 @@ const Register = () => {
     if (form.date_of_birth) {
       const age = Math.abs(moment(form.date_of_birth).diff(moment(), "years"));
 
-      if (age <= 17) {
+      if (age <= 16) {
         const inputTarget = document.getElementById("date_of_birth");
         inputTarget.scrollIntoView({ behavior: "smooth" });
         isError = true;
